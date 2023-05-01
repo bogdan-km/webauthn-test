@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="./scripts.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <button onclick="onClick()">with Promise</button>
     <button onclick="onClickWithoutPromise()">without promise</button>
     <script>
-            function onClick() {
-              // Promise.resolve().then(() => {register()}).then((lol) => console.log(lol))
-              setTimeout(() => Promise.resolve().then(() => {register()}).then((lol) => console.log(lol)), 1000)
-            }
-            function onClickWithoutPromise() {
-              register()
-            }
+      function onClick() {
+        // Promise.resolve().then(() => {register()}).then((lol) => console.log(lol))
+        setTimeout(
+          () =>
+            Promise.resolve()
+              .then(() => {
+                register();
+              })
+              .then((lol) => console.log(lol))
+              .catch((e) => console.log(e.name)),
+          1000
+        );
+      }
+      function onClickWithoutPromise() {
+        register();
+      }
     </script>
-</body>
-</html> 
+  </body>
+</html>
