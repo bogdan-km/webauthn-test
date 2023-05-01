@@ -12,8 +12,8 @@
     <button onclick="onClickWithoutPromise()">without promise</button>
     <script>
             function onClick() {
-              Promise.resolve().then(() => {register()}).then((lol) => console.log(lol))
-              
+              // Promise.resolve().then(() => {register()}).then((lol) => console.log(lol))
+              setTimeout(() => Promise.resolve().then(() => {register()}).then((lol) => console.log(lol)), 1000)
             }
             function onClickWithoutPromise() {
               register()
